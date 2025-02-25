@@ -12,11 +12,17 @@
 </head>
 <body>
   <script src="https://d3js.org/d3.v7.min.js"></script>
-
-  <h1>🚴🏼‍♀️ Bikewatching</h1>
+  <header>
+    <h1>🚴🏼‍♀️ Bikewatching</h1>
   <p>A interactive map that shows Boston area roads and neigborhoods as well
 bike lanes.
   </p>
+    <label for="time-slider">Filter by time:</label>
+    <input type="range" id="time-slider" min="-1" max="1440" value="-1">
+    <time id="selected-time"></time>
+    <em id="any-time">(any time)</em>
+  </header>
+  
   <div id="map">
     <svg></svg>
   </div>

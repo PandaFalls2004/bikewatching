@@ -8,3 +8,23 @@ body {
     margin: auto;
     padding: 1em;
   }
+  header {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+  }
+  
+  label {
+    margin-left: auto;
+  }
+  
+  #selected-time,
+  #any-time {
+    display: block;
+  }
+  
+  #any-time {
+    color: #888; /* Lighter color */
+    font-style: italic;
+  }
+  

@@ -53,6 +53,7 @@ let stations = [];
 
 
 let timeFilter = -1;
+let stationFlow = d3.scaleQuantize().domain([0, 1]).range([0, 0.5, 1]);
 // Load the traffic data
 const tripsUrl = 'https://dsc106.com/labs/lab07/data/bluebikes-traffic-2024-03.csv';
 let trips = [];
@@ -187,6 +188,7 @@ function filterTripsByTime() {
     .attr('stroke-width', 1)
     .attr('opacity', 0.8)
     .merge(circles)
+    .style("--departure-ratio", d => stationFlow(d.departures / d.totalTraffic))
     .attr('r', d => radiusScale(d.totalTraffic)) // Set radius based on total traffic
     .each(function(d) {
       d3.select(this)

@@ -27,4 +27,42 @@ body {
     color: #888; /* Lighter color */
     font-style: italic;
   }
+  :root {
+    --color-departures: steelblue; /* Color for departures */
+    --color-arrivals: darkorange; /* Color for arrivals */
+  }
+  
+  .legend {
+    display: flex;
+    gap: 1px; /* Small gap between legend items */
+    margin-block: 1em; /* Space from the map */
+  }
+  
+  .legend > div {
+    flex: 1; /* Equal space for each legend item */
+    padding: 0.5em 1em; /* Vertical and horizontal padding */
+    text-align: center; /* Center the text */
+    background: var(--color);
+    color: white; /* Text color for contrast */
+    border-radius: 4px; /* Optional: Rounded corners */
+  }
+  
+  /* Apply the color-mix to determine the color based on --departure-ratio */
+  .legend > div {
+    --color: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+  }
+  
+  .legend-swatch {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    border-radius: 50%; /* Circular swatch */
+  }
+  
   
